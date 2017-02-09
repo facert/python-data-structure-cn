@@ -1,6 +1,6 @@
 # Introduction
 
-problem-solving-with-algorithms-and-data-structure
+problem-solving-with-algorithms-and-data-structure-using-python
 
 
 
