@@ -30,11 +30,11 @@ class Stack:
 ````
 *ActiveCode 1*
 
-记住我们只定义类的实现，我们需要创建一个栈，然后使用它。ActiveCode 2 展示了我们通过实例化 Stack 类执行Table 1中的操作。注意，Stack 类的定义是从 pythonds 模块导入的。
+记住我们只定义类的实现，我们需要创建一个栈，然后使用它。ActiveCode 2 展示了我们通过实例化 Stack 类执行 Table 1中的操作。注意，Stack 类的定义是从 pythonds 模块导入的。
 
 
 > **Note**
-pythonds 模块包含本书中讨论的所有数据结构的实现。它根据以下部分构造：基本数据类型，树和图形。 该模块可以从 [pythonworks.org](http://www.pythonworks.org/pythonds)下载。
+pythonds 模块包含本书中讨论的所有数据结构的实现。它根据以下部分构造：基本数据类型，树和图。 该模块可以从 [pythonworks.org](http://www.pythonworks.org/pythonds)下载。
 
 ````
 from pythonds.basic.stack import Stack
