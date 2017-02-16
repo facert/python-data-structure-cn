@@ -10,5 +10,6 @@
 
 ![3.11.队列抽象数据类型.table1](assets/3.11.%E9%98%9F%E5%88%97%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.table1.png)
 
+
 *Table 1*
 
