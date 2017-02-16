@@ -6,14 +6,19 @@ shell排序（有时称为“递减递增排序”）通过将原始列表分解
 
 ![5.10.shell排序.figure6](assets/5.10.shell%E6%8E%92%E5%BA%8F.figure6.png)
 
-*Figure 6* *Figure 7*
+
+*Figure 6-7*
 
 Figure 8 展示了使用增量为 1 的插入排序; 换句话说，标准插入排序。注意，通过执行之前的子列表排序，我们减少了将列表置于其最终顺序所需的移位操作的总数。对于这种情况，我们只需要四次移位完成该过程。
 
 ![5.10.shell排序.figure8](assets/5.10.shell%E6%8E%92%E5%BA%8F.figure8.png)
+
+
 *Figure 8*
 
 ![5.10.shell排序.figure9](assets/5.10.shell%E6%8E%92%E5%BA%8F.figure9.png)
+
+
 *Figure 9*
 
 我们之前说过，增量的选择方式是 shell排序的独特特征。 ActiveCode 1中展示的函数使用不同的增量集。在这种情况下，我们从 n/2 子列表开始。下一次，n/4 子列表排序。 最后，单个列表按照基本插入排序进行排序。 Figure 9 展示了我们使用此增量的示例的第一个子列表。

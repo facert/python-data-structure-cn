@@ -5,6 +5,8 @@
 使用节点和引用，我们认为树结构类似于 Figure 2 所示。
 
 ![6.5.节点表示.figure2](assets/6.5.%E8%8A%82%E7%82%B9%E8%A1%A8%E7%A4%BA.figure2.png)
+
+
 *Figure 2*
 
 我们将从节点和引用方法的一个简单的类定义开始，如 Listing 4 所示。要记住这个表示重要的事情是 `left` 和 `right` 的属性将成为对 `BinaryTree` 类的其他实例的引用。 例如，当我们在树中插入一个新的左子节点时，我们创建另一个 `BinaryTree` 实例，并在根节点中修改`self.leftChild` 来引用新树节点。
