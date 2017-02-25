@@ -15,7 +15,7 @@ class Vertex:
 
     def __str__(self):
         return str(self.id) + ' connectedTo: ' + str([x.id for x in self.connectedTo])
-
+        
     def getConnections(self):
         return self.connectedTo.keys()
 
