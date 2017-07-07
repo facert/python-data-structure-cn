@@ -343,7 +343,7 @@ Python 为我们提供了一个非常强大的函数，在创建迭代器时使�
 def __iter__(self):
    if self:
       if self.hasLeftChild():
-             for elem in self.leftChiLd:
+             for elem in self.leftChild:
                 yield elem
       yield self.key
       if self.hasRightChild():
