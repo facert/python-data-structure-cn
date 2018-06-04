@@ -23,12 +23,11 @@ def anagramSolution1(s1,s2):
 
         if found:
             alist[pos2] = None
+            pos1 = pos1 + 1
         else:
             stillOK = False
 
-        pos1 = pos1 + 1
-
-    return stillOK
+    return stillOK and (len(filter(None, alist)) == 0)
 
 print(anagramSolution1('abcd','dcba'))
 ````
