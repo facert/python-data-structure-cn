@@ -1,4 +1,5 @@
 ## 3.13.模拟：烫手山芋
+
 队列的典型应用之一是模拟需要以 FIFO 方式管理数据的真实场景。首先，让我们看看孩子们的游戏烫手山芋，在这个游戏中（见 Figure 2），孩子们围成一个圈，并尽可能快的将一个山芋递给旁边的孩子。在某一个时间，动作结束，有山芋的孩子从圈中移除。游戏继续开始直到剩下最后一个孩子。
 
 ![3.13.模拟：烫手山芋.figure2](assets/3.13.%E6%A8%A1%E6%8B%9F%EF%BC%9A%E7%83%AB%E6%89%8B%E5%B1%B1%E8%8A%8B.figure2.png)
@@ -12,10 +13,9 @@
 
 ![3.13.模拟：烫手山芋.figure3](assets/3.13.%E6%A8%A1%E6%8B%9F%EF%BC%9A%E7%83%AB%E6%89%8B%E5%B1%B1%E8%8A%8B.figure3.png)
 
-
 *Figure 3*
 
-```` python
+```python
 from pythonds.basic.queue import Queue
 
 def hotPotato(namelist, num):
@@ -33,9 +33,8 @@ def hotPotato(namelist, num):
 
 print(hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
 
-````
+```
+
 *Active code 1*
 
 请注意，在此示例中，计数常数的值大于列表中的名称数。这不是一个问题，因为队列像一个圈，计数会重新回到开始，直到达到计数值。另外，请注意，列表加载到队列中以使列表上的名字位于队列的前面。在这种情况下，`Bill` 是列表中的第一个项，因此他在队列的前面。
-
-
