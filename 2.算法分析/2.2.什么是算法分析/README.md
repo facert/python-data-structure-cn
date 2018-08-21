@@ -99,7 +99,10 @@ Sum is 500000500000 required  0.1646299 seconds
 ```
 
 在这种情况下，平均值也大约是前一次的10倍。现在考虑 *ActiveCode 3*，它显示了求解求和问题的不同方法。函数 *sumOfN3* 利用[封闭方程](https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF)而不是迭代来计算前n个整数的和。
-$$\sum_{i=1}^n i=\frac{(n)(n+1)}{2}$$
+
+$$
+\sum_{i=1}^n i=\frac{(n)(n+1)}{2}
+$$
 
 ``` python
 def sumOfN3(n):
