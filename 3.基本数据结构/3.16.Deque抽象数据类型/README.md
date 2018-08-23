@@ -1,4 +1,5 @@
 ## 3.16.Deque抽象数据类型
+
 deque 抽象数据类型由以下结构和操作定义。如上所述，deque 被构造为项的有序集合，其中项从首部或尾部的任一端添加和移除。下面给出了 deque 操作。
 
 * Deque() 创建一个空的新 deque。它不需要参数，并返回空的 deque。
@@ -13,8 +14,4 @@ deque 抽象数据类型由以下结构和操作定义。如上所述，deque �
 
 ![3.16.Deque抽象数据类型.table1](assets/3.16.Deque%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.table1.png)
 
-
 *Table 1*
-
-
-
