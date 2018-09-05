@@ -12,7 +12,7 @@
 
 ActiveCode 1 展示了使用一些二叉堆方法。注意，无论我们向堆中添加项的顺序是什么，每次都删除最小的。我们现在将把注意力转向如何实现这个想法。
 
-``` python
+```python
 from pythonds.trees.binheap import BinHeap
 
 bh = BinHeap()
@@ -29,4 +29,3 @@ print(bh.delMin())
 
 print(bh.delMin())
 ```
-
