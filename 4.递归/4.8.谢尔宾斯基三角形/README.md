@@ -4,12 +4,11 @@
 
 ![4.8.谢尔宾斯基三角形.figure3](assets/4.8.%E8%B0%A2%E5%B0%94%E5%AE%BE%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2.figure3.png)
 
-
 *Figure 3*
 
 因为我们可以无限地应用算法，什么是基本情况？ 我们将看到，基本情况被任意设置为我们想要将三角形划分成块的次数。有时我们把这个数字称为分形的“度”。 每次我们进行递归调用时，我们从度中减去 1，直到 0。当我们达到 0 度时，我们停止递归。在 Figure 3 中生成谢尔宾斯基三角形的代码见 ActiveCode 1。
 
-```` python
+```python
 import turtle
 
 def drawTriangle(points,color,myTurtle):
@@ -53,7 +52,8 @@ def main():
 
 main()
 
-````
+```
+
 *Activecode 1*
 
 ActiveCode 1 中的程序遵循上述概念。谢尔宾斯基的第一件事是绘制外三角形。接下来，有三个递归调用，每个使我们在连接中点获得新的三角形。我们再次使用 Python 附带的 `turtle` 模块。你可以通过使用 `help('turtle')` 了解 `turtle` 可用方法的详细信息。
@@ -64,12 +64,6 @@ ActiveCode 1 中的程序遵循上述概念。谢尔宾斯基的第一件事是�
 
 ![4.8.谢尔宾斯基三角形.figure4](assets/4.8.%E8%B0%A2%E5%B0%94%E5%AE%BE%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2.figure4.png)
 
-
 *Figure 4*
 
 谢尔宾斯基函数在很大程度上依赖于 `getMid` 函数。 `getMid` 接受两个端点作为参数，并返回它们之间的中点。 此外，ActiveCode 1 还有一个函数，使用 `begin_fill` 和 `end_fill` 方法绘制填充一个三角形。
-
-
-
-
-

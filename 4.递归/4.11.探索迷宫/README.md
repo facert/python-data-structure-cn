@@ -2,9 +2,7 @@
 
 在这一节中，我们将讨论一个与扩展机器人世界相关的问题：你如何找到自己的迷宫？ 如果你在你的宿舍有一个扫地机器人（不是所有的大学生？）你希望你可以使用你在本节中学到的知识重新给它编程。 我们要解决的问题是帮助我们的乌龟在虚拟迷宫中找到出路。 迷宫问题的根源与希腊的神话有关，传说忒修斯被送入迷宫中以杀死人身牛头怪。忒修斯用了一卷线帮助他找到回去的退路，当他完成杀死野兽的任务。在我们的问题中，我们将假设我们的乌龟在迷宫中间的某处，必须找到出路。 看看 Figure 2，了解我们将在本节中做什么。
 
-
 ![4.11.探索迷宫.figure2](assets/4.11.%E6%8E%A2%E7%B4%A2%E8%BF%B7%E5%AE%AB.figure2.png)
-
 
 *Figure 2*
 
@@ -36,7 +34,7 @@ Maze 类还重载索引运算符 `[]` ，以便我们的算法可以轻松访问
 
 让我们来查看称为 `searchFrom` 的搜索函数的代码。代码如 Listing 3 所示。请注意，此函数需要三个参数：迷宫对象，起始行和起始列。 这很重要，因为作为递归函数，搜索在每次递归调用时开始。
 
-````
+```python
 def searchFrom(maze, startRow, startColumn):
     maze.updatePosition(startRow, startColumn)
    #  Check for base cases:
@@ -63,7 +61,8 @@ def searchFrom(maze, startRow, startColumn):
     else:
         maze.updatePosition(startRow, startColumn, DEAD_END)
     return found
-````
+```
+
 *Listing 3*
 
 你会看到代码的第一行（行 2）调用 `updatePosition`。这只是为了可视化算法，以便你可以看到乌龟如何探索通过迷宫。接下来算法检查四种基本情况中的前三种：乌龟是否碰到墙（行 5）？乌龟是否回到已经探索过的格子（行 8）？乌龟有没有到达出口（行 11）？如果这些条件都不为真，则我们继续递归搜索。
@@ -72,7 +71,7 @@ def searchFrom(maze, startRow, startColumn):
 
 `Maze` 类的代码如 Listing 4，Listing 5 和 Listing 6 所示。`__init__` 方法将文件的名称作为其唯一参数。此文件是一个文本文件，通过使用 `+` 字符表示墙壁，空格表示空心方块，并使用字母 `S` 表示起始位置。Figure 3 是迷宫数据文件的示例。迷宫的内部表示是列表的列表。 `mazelist` 实例变量的每一行也是一个列表。此辅助列表使用上述字符，每格表示一个字符。Figure 3 中的数据文件，内部表示如下所示：
 
-````
+```python
 [ ['+','+','+','+',...,'+','+','+','+','+','+','+'],
   ['+',' ',' ',' ',...,' ',' ',' ','+',' ',' ',' '],
   ['+',' ','+',' ',...,'+','+',' ','+',' ','+','+'],
@@ -84,13 +83,13 @@ def searchFrom(maze, startRow, startColumn):
   ['+',' ','+','+',...,' ',' ','+',' ',' ',' ','+'],
   ['+',' ',' ',' ',...,' ',' ','+',' ','+','+','+'],
   ['+','+','+','+',...,'+','+','+',' ','+','+','+']]
-````
+```
 
 `drawMaze` 方法使用这个内部表示在屏幕上绘制迷宫的初始视图。
 
 Figure 3：示例迷宫数据文件
 
-````
+```python
 ++++++++++++++++++++++
 +   +   ++ ++     +
 + +   +       +++ + ++
@@ -102,14 +101,15 @@ Figure 3：示例迷宫数据文件
 + +++++++      S +   +
 +                + +++
 ++++++++++++++++++ +++
-````
+```
+
 *Figure 3*
 
 如 Listing 5 所示，`updatePosition` 方法使用相同的内部表示来查看乌龟是否遇到了墙。它还用 `.` 或 `-` 更新内部表示，以表示乌龟已经访问了特定格子或者格子是死角。 此外，`updatePosition` 方法使用两个辅助方法`moveTurtle` 和 `dropBreadCrumb` 来更新屏幕上的视图。
 
 最后，`isExit` 方法使用乌龟的当前位置来检测退出条件。退出条件是当乌龟已经到迷宫的边缘时，即行零或列零，或者在最右边列或底部行。
 
-````
+```python
 class Maze:
     def __init__(self,mazeFileName):
         rowsInMaze = 0
@@ -140,10 +140,11 @@ class Maze:
                             -(rowsInMaze-1)/2-.5,
                             (columnsInMaze-1)/2+.5,
                             (rowsInMaze-1)/2+.5)
-````
+```
+
 *Listing 4*
 
-````
+```python
 def drawMaze(self):
     for y in range(self.rowsInMaze):
         for x in range(self.columnsInMaze):
@@ -195,10 +196,11 @@ def updatePosition(self,row,col,val=None):
 
     if color:
         self.dropBreadcrumb(color)
-````
+```
+
 *Listing 5*
 
-````
+```python
 def isExit(self,row,col):
      return (row == 0 or
              row == self.rowsInMaze-1 or
@@ -207,9 +209,6 @@ def isExit(self,row,col):
 
 def __getitem__(self,idx):
      return self.mazelist[idx]
-````
+```
+
 *Listing 6*
-
-
-
-
