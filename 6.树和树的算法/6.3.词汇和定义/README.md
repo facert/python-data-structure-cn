@@ -16,7 +16,7 @@
 
 ##### 路径
 
-路径是由边连接节点的有序列表。例如，$$Mammal→Carnivora→Felidae→Felis→Domestica$$是一条路径。
+路径是由边连接节点的有序列表。例如， Mammal→Carnivora→Felidae→Felis→Domestica 是一条路径。
 
 ##### 子节点
 
