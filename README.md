@@ -12,19 +12,15 @@
 * 本书未加上课后练习，如有兴趣，可上原书网站练习。
 
 #### 地址
+
 * github 地址: https://github.com/facert/python-data-structure-cn
 * gitbook 在线浏览: https://facert.gitbooks.io/python-data-structure-cn
 
-
 #### 联系作者
+
 * 邮箱： zhangcr1992@163.com
 * 博客： https://facert.github.io
 
 #### 许可证
+
 本作品采用 署名-非商业性使用-相同方式共享 4.0 国际许可协议 进行许可。传播此文档时请注意遵循以上许可协议。 关于本许可证的更多详情可参考 https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-
-
-
-
-
