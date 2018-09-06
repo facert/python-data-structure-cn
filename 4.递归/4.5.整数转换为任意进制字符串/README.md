@@ -16,12 +16,11 @@
 
 ![4.5.整数转换为任意进制字符串.figure3](assets/4.5.%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BB%BB%E6%84%8F%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2.figure3.png)
 
-
 *Figure 3*
 
 ActiveCode 1 展示了实现上述算法的 Python 代码， 以 2 到 16 之间的任何基数为参数。
 
-````
+```python
 def toStr(n,base):
    convertString = "0123456789ABCDEF"
    if n < base:
@@ -30,7 +29,7 @@ def toStr(n,base):
       return toStr(n//base,base) + convertString[n%base]
 
 print(toStr(1453,16))
-````
+```
 
 请注意，在第 3 行中，我们检查基本情况，其中 n 小于我们要转换的基数。 当我们检测到基本情况时，我们停止递归，并简单地从 convertString 序列返回字符串。 在第 6 行中，我们满足第二和第三定律 - 递归调用和减少除法问题大小。
 
@@ -38,12 +37,6 @@ print(toStr(1453,16))
 
 ![4.5.整数转换为任意进制字符串.figure4](assets/4.5.%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BB%BB%E6%84%8F%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2.figure4.png)
 
-
 *Figure 4*
 
-Figure 4 显示我们得到的结果，但看起来数字是错误的顺序。该算法是正确的，因为我们首先在第 6 行进行递归调用，然后我们添加余数的字符串形式。 如果我们反向返回 convertString 查找并返回 toStr 调用，则生成的字符串将是反向的！通过延后连接操作直到递归调用返回，我们可以得到正确顺序的结果。这应该能使你想起你在上一章中讨论的栈。
-
-
-
-
-
+Figure 4 显示我们得到的结果，但看起来数字是错误的顺序。该算法是正确的，因为我们首先在第 6 行进行递归调用，然后我们添加余数的字符串形式。 如果我们反向返回 `convertString` 查找并返回 `toStr` 调用，则生成的字符串将是反向的！通过延后连接操作直到递归调用返回，我们可以得到正确顺序的结果。这应该能使你想起你在上一章中讨论的栈。

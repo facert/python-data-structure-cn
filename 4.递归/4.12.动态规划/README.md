@@ -14,7 +14,7 @@
 
 执行我们刚才描述的算法如 Listing 7 所示。在第 3 行，我们检查基本情况;也就是说，我们正试图支付硬币的确切金额。如果我们没有等于找零数量的硬币，我们递归调用每个小于找零额的不同的硬币值。第 6 行显示了我们如何使用列表推导将硬币列表过滤到小于当前找零的硬币列表。递归调用也减少了由所选硬币的值所需要的总找零量。递归调用在第 7 行。注意在同一行，我们将硬币数 `+1` ，以说明我们正在使用一个硬币的事实。
 
-```` python
+```python
 def recMC(coinValueList,change):
    minCoins = change
    if change in coinValueList:
@@ -27,7 +27,8 @@ def recMC(coinValueList,change):
    return minCoins
 
 print(recMC([1,5,10,25],63))
-````
+```
+
 *Listing 7*
 
 Listing 7 中的算法是非常低效的。事实上，它需要 `67,716,925` 个递归调用来找到 4 个硬币的最佳解决 63 美分问题的方案。要理解我们方法中的致命缺陷，请参见 Figure 5，其中显示了 377 个函数调用所需的一小部分，找到支付 26 美分的最佳硬币。
@@ -36,12 +37,11 @@ Listing 7 中的算法是非常低效的。事实上，它需要 `67,716,925` �
 
 ![4.12.动态规划.figure5](assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.figure5.png)
 
-
 *Figure 5*
 
 减少我们工作量的关键是记住一些过去的结果，这样我们可以避免重新计算我们已经知道的结果。一个简单的解决方案是将最小数量的硬币的结果存储在表中。然后在计算新的最小值之前，我们首先检查表，看看结果是否已知。如果表中已有结果，我们使用表中的值，而不是重新计算。 ActiveCode 1 显示了一个修改的算法，以合并我们的表查找方案。
 
-```` python
+```python
 def recDC(coinValueList,change,knownResults):
    minCoins = change
    if change in coinValueList:
@@ -59,7 +59,8 @@ def recDC(coinValueList,change,knownResults):
    return minCoins
 
 print(recDC([1,5,10,25],63,[0]*64))
-````
+```
+
 *ActiveCode 1*
 
 注意，在第 6 行中，我们添加了一个测试，看看我们的列表是否包含此找零的最小硬币数量。如果没有，我们递归计算最小值，并将计算出的最小值存储在列表中。使用这个修改的算法减少了我们需要为四个硬币递归调用的数量，63美分问题只需 221 次调用！
@@ -79,7 +80,7 @@ print(recDC([1,5,10,25],63,[0]*64))
 
 Listing 8 用一个动态规划算法来解决我们的找零问题。 `dpMakeChange` 有三个参数：一个有效硬币值的列表，我们要求的找零额，以及一个包含每个值所需最小硬币数量的列表。 当函数完成时，`minCoins` 将包含从 0 到找零值的所有值的解。
 
-````
+```python
 def dpMakeChange(coinValueList,change,minCoins):
    for cents in range(change+1):
       coinCount = cents
@@ -88,7 +89,8 @@ def dpMakeChange(coinValueList,change,minCoins):
                coinCount = minCoins[cents-j]+1
       minCoins[cents] = coinCount
    return minCoins[change]
-````
+```
+
 *Listing 8*
 
 注意，`dpMakeChange` 不是递归函数，即使我们开始使用递归解决这个问题。重要的是要意识到，你可以为问题写一个递归解决方案但并不意味着它是最好的或最有效的解决方案。在这个函数中的大部分工作是通过从第 4 行开始的循环来完成的。在这个循环中，我们考虑使用所有可能的硬币对指定的金额进行找零。就像我们上面的 11 分的例子，我们记住最小值，并将其存储在我们的 `minCoins` 列表。
@@ -99,7 +101,7 @@ ActiveCode 2 展示了 `dpMakeChange` 算法修改为跟踪使用的硬币，以
 
 注意，我们打印的硬币直接来自 `coinsUsed` 数组。对于第一次调用，我们从数组位置 `63` 开始，然后打印 `21`。然后我们取 `63-21 = 42`，看看列表的第 42 个元素。我们再次找到 21 存储在那里。 最后，数组第 21 个元素21 也包含 21，得到三个 21。
 
-````
+```python
 def dpMakeChange(coinValueList,change,minCoins,coinsUsed):
    for cents in range(change+1):
       coinCount = cents
@@ -133,10 +135,11 @@ def main():
     print(coinsUsed)
 
 main()
-````
+```
+
 *AcitveCode 2*
 
-````
+```python
 Making change for 63 requires
 3 coins
 They are:
@@ -145,6 +148,4 @@ They are:
 21
 The used list is as follows:
 [1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 10, 1, 1, 1, 1, 5, 1, 1, 1, 1, 10, 21, 1, 1, 1, 25, 1, 1, 1, 1, 5, 10, 1, 1, 1, 10, 1, 1, 1, 1, 5, 10, 21, 1, 1, 10, 21, 1, 1, 1, 25, 1, 10, 1, 1, 5, 10, 1, 1, 1, 10, 1, 10, 21]
-````
-
-
+```
