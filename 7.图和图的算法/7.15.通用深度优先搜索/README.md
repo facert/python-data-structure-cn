@@ -6,7 +6,7 @@
 
 我们深度优先搜索的代码如 Listing 5 所示。由于 dfs 和它的辅助函数`dfsvisit` 这两个函数使用一个变量来跟踪调用 `dfsvisit` 的时间，所以我们选择将代码实现为继承自 `Graph` 类。此实现通过添加时间实例变量和两个方法 `dfs` 和 `dfsvisit`来扩展 `Graph` 类。看看第 11 行，你会注意到，`dfs` 方法在调用 `dfsvisit` 的图中所有的顶点迭代，这些节点是白色的。我们迭代所有节点而不是简单地从所选择的起始节点进行搜索的原因是为了确保图中的所有节点都被考虑到，没有顶点从深度优先森林中被遗漏。`for aVertex in self` 语句可能看起来不寻常，但请记住，在这种情况下，`self`是 `DFSGraph` 类的一个实例，遍历实例中的所有顶点是一件自然的事情。
 
-```
+```python
 from pythonds.graphs import Graph
 class DFSGraph(Graph):
     def __init__(self):
@@ -33,6 +33,7 @@ class DFSGraph(Graph):
         self.time += 1
         startVertex.setFinish(self.time)
 ```
+
 *Listing 5*
 
 虽然我们 `bfs` 的实现只对有一条路径回到开始的路径的节点感兴趣，但是有可能创建一个宽度优先森林，其表示图中的所有节点之间的最短路径。我们把这作为一个练习。在接下来的两个算法中，我们将看到为什么跟踪深度优先森林的深度很重要。
@@ -52,9 +53,10 @@ class DFSGraph(Graph):
 顶点 F 只有一个相邻的顶点 C，但由于 C 是黑色的，没有别的东西可以探索，算法已经到达另一个分支的结束。从这里开始，你将在 Figure 21至 Figure 25中看到算法运行回到第一个节点，设置完成时间和着色顶点为黑色。
 
 ![7.15.通用深度优先搜索.figure14](assets/7.15.%E9%80%9A%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.figure14.png)
-![7.15.通用深度优先搜索.figure14-2](assets/7.15.%E9%80%9A%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.figure14-2.png)
-![7.15.通用深度优先搜索.figure14-3](assets/7.15.%E9%80%9A%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.figure14-3.png)
 
+![7.15.通用深度优先搜索.figure14-2](assets/7.15.%E9%80%9A%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.figure14-2.png)
+
+![7.15.通用深度优先搜索.figure14-3](assets/7.15.%E9%80%9A%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.figure14-3.png)
 
 *Figure 14-25*
 
@@ -62,7 +64,4 @@ class DFSGraph(Graph):
 
 ![7.15.通用深度优先搜索.figure26](assets/7.15.%E9%80%9A%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.figure26.png)
 
-
 *Figure 26*
-
-

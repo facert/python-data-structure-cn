@@ -6,7 +6,7 @@
 
 Dijkstra算法的代码如 Listing 1 所示。当算法完成时，距离设置正确，如图中每个顶点的前导链接一样
 
-```
+```python
 from pythonds.graphs import PriorityQueue, Graph, Vertex
 def dijkstra(aGraph,start):
     pq = PriorityQueue()
@@ -22,6 +22,7 @@ def dijkstra(aGraph,start):
                 nextVert.setPred(currentVert)
                 pq.decreaseKey(nextVert,newDist)
 ```
+
 *Listing 1*
 
 Dijkstra的算法使用优先级队列。你可能还记得，优先级队列是基于我们在树章节中实现的堆。这个简单的实现和我们用于Dijkstra算法的实现之间有几个区别。首先，PriorityQueue 类存储键值对的元组。这对于Dijkstra的算法很重要，因为优先级队列中的键必须匹配图中顶点的键。其次，值用于确定优先级，并且用于确定键在优先级队列中的位置。在这个实现中，我们使用到顶点的距离作为优先级，因为我们看到当探索下一个顶点时，我们总是要探索具有最小距离的顶点。第二个区别是增加 `decreaseKey` 方法。正如你看到的，当一个已经在队列中的顶点的距离减小时，使用这个方法，将该顶点移动到队列的前面。
@@ -33,11 +34,11 @@ Dijkstra的算法使用优先级队列。你可能还记得，优先级队列是
 下一步是查看邻近 v 的顶点（参见 Figure 5）。此步骤不会对图形进行任何更改，因此我们继续前进到节点 y。在节点 y（见Figure 6），我们发现到 w 和 z 都更小，因此我们相应地调整距离和前导链接。最后，我们检查节点 w 和 z（参见 Figure 6 和 Figure 8）。但是，没有发现额外的更改，因此优先级队列为空，Dijkstra的算法退出。
 
 ![7.20.Dijkstra算法.figure3](assets/7.20.Dijkstra%E7%AE%97%E6%B3%95.figure3.png)
-![7.20.Dijkstra算法.figure4](assets/7.20.Dijkstra%E7%AE%97%E6%B3%95.figure4.png)
-![7.20.Dijkstra算法.figure5](assets/7.20.Dijkstra%E7%AE%97%E6%B3%95.figure5.png)
 
+![7.20.Dijkstra算法.figure4](assets/7.20.Dijkstra%E7%AE%97%E6%B3%95.figure4.png)
+
+![7.20.Dijkstra算法.figure5](assets/7.20.Dijkstra%E7%AE%97%E6%B3%95.figure5.png)
 
 重要的是要注意，Dijkstra的算法只有当权重都是正数时才起作用。 如果你在图的边引入一个负权重，算法永远不会退出。
 
 我们将注意到，通过因特网路由发送消息，可以使用其他算法来找到最短路径。 在互联网上使用 Dijkstra 算法的一个问题是，为了使算法运行，你必须有一个完整的图表示。 这意味着每个路由器都有一个完整的互联网中所有路由器地图。 实际上不是这种情况，算法的其他变种允许每个路由器在它们发送时发现图。 你可能想要了解的一种这样的算法称为 “距离矢量” 路由算法。
-
