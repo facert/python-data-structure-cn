@@ -54,7 +54,7 @@
 
 然后，我们可以获取这三个 ascii 值，将它们相加，并使用余数方法获取散列值（参见 Figure 6）。 Listing 1 展示了一个名为 hash 的函数，它接收字符串和表大小 作为参数，并返回从 `0` 到 `tablesize-1` 的范围内的散列值。
 
-![5.5.Hash查找.table5](assets/5.5.Hash%E6%9F%A5%E6%89%BE.table5-1.png)
+![5.5.Hash查找.figure6](assets/5.5.Hash%E6%9F%A5%E6%89%BE.figure6.png)
 
 *Figure 6*
 
