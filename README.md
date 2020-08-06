@@ -1,8 +1,3 @@
-python-data-structure-cn is being sponsored by the following tool; please help to support us by taking a look and signing up to a free trial.
-
-<a target="_blank" href="https://tracking.gitads.io/?repo=awesome-spider"><img src="https://images.gitads.io/awesome-spider"></a>
-
-
 其他译本： http://gis4g.pku.edu.cn/download/sessdsa-textbook/
 
 # 目录
